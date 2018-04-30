@@ -1,0 +1,30 @@
+<div>
+  <label>Hero Name:
+    <input #heroName />
+  </label>
+  <!-- click faz duas coisas:
+  1) passa valor da caixa input como atributo para a chamada de add
+  2) limpa a caixa de input
+  -->
+  <button (click)='add(heroName.value); heroName.value="";' >
+    add
+  </button>
+</div>
+
+<ag-grid-angular #agGrid style="width: 100%; height: 300px;" class="ag-theme-balham"
+                  [gridOptions]="gridOptions"
+                  [enableSorting] = "true"
+                  [enableFilter] = "true"
+                  [enableColResize] = "true"
+                  [rowSelection] = "rowSelection"
+                  [rowModelType] = "rowModelType"
+                  [paginationPageSize]="paginationPageSize"
+                  [cacheBlockSize] = "cacheBlockSize"
+                  [cacheOverflowSize] = "cacheOverflowSize"
+                  [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+                  [maxBlocksInCache]="maxBlocksInCache"
+
+                  (rowSelected) = "onRowSelected($event)"
+                  (gridReady) = "onGridReady($event)">
+</ag-grid-angular>
+
